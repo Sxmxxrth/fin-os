@@ -1,14 +1,10 @@
 # Fin-OS Enterprise
 
-Welcome to Fin-OS Enterprise! To deploy this instantly, click the buttons below:
+Welcome to Fin-OS Enterprise! Since backend servers require credit cards, I have re-architected this entire application into a single "Monolith" that can run completely for free on Streamlit Cloud.
 
-### 1. Deploy the Backend API
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Sxmxxrth/fin-os)
+### 🚀 1-Click Free Deployment
+Click the button below to instantly deploy the entire platform for free (No Credit Card Required):
 
-*Note: After clicking deploy, you will be prompted to enter your `GROQ_API_KEY`.*
+[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=Sxmxxrth/fin-os&branch=main&mainModule=app.py)
 
-### 2. Deploy the Frontend Dashboard
-Once the backend is live, click here to deploy the frontend:
-[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=Sxmxxrth/fin-os&branch=main&mainModule=frontend/dashboard.py)
-
-*Note: Add `BACKEND_URL="https://your-render-url.onrender.com"` in your Streamlit Advanced Settings before deploying.*
+*Note: After clicking deploy, go to Advanced Settings > Secrets and add `GROQ_API_KEY="your-key-here"`.*
