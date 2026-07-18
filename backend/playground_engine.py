@@ -9,6 +9,15 @@ log = get_logger(__name__)
 class QuantPlaygroundEngine:
     def __init__(self):
         self.groq_key = config.GROQ_API_KEY
+        
+        # Explicitly pull from Streamlit Cloud Secrets for Monolithic Deployments
+        try:
+            import streamlit as st
+            if not self.groq_key and "GROQ_API_KEY" in st.secrets:
+                self.groq_key = st.secrets["GROQ_API_KEY"]
+        except Exception:
+            pass
+
         if self.groq_key:
             import groq
             self.client = groq.Groq(api_key=self.groq_key)
@@ -44,7 +53,7 @@ class QuantPlaygroundEngine:
         except Exception as e:
             log.error(f"Groq API Error: {e}")
             fallback_code = "df['SMA_50'] = df['Close'].rolling(window=50).mean()\ndf['SMA_200'] = df['Close'].rolling(window=200).mean()\ndf['Signal'] = np.where(df['SMA_50'] > df['SMA_200'], 1, 0)"
-            return f"{fallback_code}\n# Note: API Error. Using Fallback Strategy."
+            return f"{fallback_code}\n# Note: API Error -> {str(e)}"
 
     def run_vectorized_backtest(self, ticker: str, pandas_code: str):
         """Executes the pandas code on historical data and calculates quant metrics."""
