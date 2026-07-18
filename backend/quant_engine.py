@@ -9,8 +9,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score
 import joblib
 import os
-from config import config
-from logger import get_logger
+from backend.config import config
+from backend.logger import get_logger
 
 log = get_logger(__name__)
 

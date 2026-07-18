@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 import yfinance as yf
-from config import config
-from logger import get_logger
+from backend.config import config
+from backend.logger import get_logger
 
 log = get_logger(__name__)
 
