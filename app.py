@@ -85,7 +85,7 @@ with col3:
                     m4.metric("Win Rate", f"{data['win_rate']}%")
                     
                     st.markdown("### ⚙️ Llama-3 Generated Source Code")
-                    st.code(data['generated_code'], language='python')
+                    st.code(generated_code, language='python')
                     
                     st.session_state['equity_curve'] = data['equity_curve']
             except Exception as e:
