@@ -16,3 +16,4 @@ python-dotenv
 plotly
 pydantic-settings
 google-generativeai
+groq
